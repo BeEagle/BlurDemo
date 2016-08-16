@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">BlurDemo</string>
+    <string name="do_blur">Do Blur</string>
+    <string name="millions">%d ms</string>
+    <string name="choose_picture">Choose</string>
+    <string name="blur_radius">Blur radius</string>
+    <string name="bitmap_scaled">Bitmap scale</string>
+    <string-array name="blur_mode">
+        <item>Fast Blur</item>
+        <item>Fast Blur(JNI)</item>
+        <item>Box Blur</item>
+        <item>Gaussia Fast Blur</item>
+        <item>Stack Blur</item>
+        <item>RenderScript Blur</item>
+        <item>RenderScript Box 3x3 </item>
+        <item>RenderScript Box 5x5 </item>
+        <item>RenderScript Box Gaussia 5x5 </item>
+    </string-array>
+</resources>
