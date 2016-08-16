@@ -26,6 +26,7 @@ public class BlurInfo {
     public ObservableFloat scaleRatio = new ObservableFloat();
     public ObservableField<Bitmap> bitmap = new ObservableField<>();
     public ObservableLong duration = new ObservableLong();
+    public ObservableInt sizeChanged = new ObservableInt();
     public Bitmap sourceBitmap;
     public float maxScaleRatio = 1f;
     public int selectedPosition;

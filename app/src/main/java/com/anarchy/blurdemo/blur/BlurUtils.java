@@ -1,6 +1,9 @@
 package com.anarchy.blurdemo.blur;
 
+import android.app.ActivityManager;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
@@ -15,6 +18,8 @@ import android.support.v8.renderscript.ScriptIntrinsicConvolve3x3;
 import android.support.v8.renderscript.ScriptIntrinsicConvolve5x5;
 
 import com.anarchy.blurdemo.BlurInfo;
+
+import java.util.List;
 
 
 /**
@@ -35,6 +40,7 @@ public class BlurUtils {
     }
 
     public static Bitmap doBlur(Context context, @NonNull BlurInfo info, Bitmap src, float scaled, int radius, CONFIG config){
+        int startSize = getMemorySize(context);
         long start = System.currentTimeMillis();
         Bitmap result = null;
         switch (config){
@@ -70,6 +76,8 @@ public class BlurUtils {
         }
         long end = System.currentTimeMillis();
         info.duration.set(end-start);
+        int endSize = getMemorySize(context);
+        info.sizeChanged.set(endSize-startSize);
         return result;
     }
 
@@ -191,5 +199,21 @@ public class BlurUtils {
         return Bitmap.createScaledBitmap(src,(int)(src.getWidth()*scaled),(int)(src.getHeight()*scaled),true);
     }
 
-    
+    private static int getMemorySize(Context context){
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        int uid = 0;
+        try {
+            ApplicationInfo info = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+            uid = info.uid;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        List<ActivityManager.RunningAppProcessInfo> infos = activityManager.getRunningAppProcesses();
+        for(ActivityManager.RunningAppProcessInfo info:infos){
+            if(info.uid == uid){
+                return activityManager.getProcessMemoryInfo(new int[]{info.pid})[0].dalvikPrivateDirty;
+            }
+        }
+        return 0;
+    }
 }
