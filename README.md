@@ -82,7 +82,9 @@
 |RSB3x3|A`(3,48)`</br>B`(12,564)`|A`(1,48)`</br>B`(5,560)`|A`(15,652)`</br>B`(100,9008)`|A`(36,2604)`</br>B`(409,36120)`|A`(62,2604)`</br>B`(713,35888)`
 |RSB5x5|A`(4,60)`</br>B`(17,560)`|A`(2,60)`</br>B`(9,560)`|A`(22,652)`</br>B`(191,9008)`|A`(59,2604)`</br>B`(661,35888)`|A`(122,2604)`</br>B`(1249,35888)`
 |RSBG5x5|A`(4,44)`</br>B`(17,560)`|A`(2,56)`</br>B`(10,568)`|A`(22,652)`</br>B`(187,9008)`|A`(59,2604)`</br>B`(677,35892)`|A`(120,2604)`</br>B`(1268,35892)`
-
+##图表
+![](http://upload-images.jianshu.io/upload_images/1916010-e7a708f356226a2f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](http://upload-images.jianshu.io/upload_images/1916010-d8f33dddb515e8c9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 
